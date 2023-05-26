@@ -35,4 +35,4 @@ const Time = {
   wait,
 };
 
-Object.assign(global, { Time });
+module.exports = Time;
