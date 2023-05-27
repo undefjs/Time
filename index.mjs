@@ -7,7 +7,7 @@
  * @param {number} ts - The timestamp at which the callback should be executed.
  * @param {Function} callback - The callback function to be executed.
  */
-function executeAt(ts, callback) {
+export function executeAt(ts, callback) {
   const now = Date.now();
   const delay = ts - now;
 
@@ -24,7 +24,7 @@ function executeAt(ts, callback) {
  * @param {number} ms - The delay in milliseconds after which the callback should be executed.
  * @param {Function} callback - The callback function to be executed.
  */
-function executeAfter(ms, callback) {
+export function executeAfter(ms, callback) {
   setTimeout(callback, ms);
 }
 
@@ -34,7 +34,7 @@ function executeAfter(ms, callback) {
  * @param {number} ts - The timestamp at which the Promise should resolve.
  * @returns {Promise} A Promise that resolves when the specified timestamp is reached.
  */
-function waitUntil(ts) {
+export function waitUntil(ts) {
   return new Promise(resolve => {
     executeAt(ts, resolve);
   });
@@ -46,15 +46,8 @@ function waitUntil(ts) {
  * @param {number} ms - The delay in milliseconds after which the Promise should resolve.
  * @returns {Promise} A Promise that resolves after the specified delay.
  */
-function wait(ms) {
+export function wait(ms) {
   return new Promise(resolve => {
     executeAfter(ms, resolve);
   });
 }
-
-export default Time = {
-  executeAt,
-  executeAfter,
-  waitUntil,
-  wait,
-};
