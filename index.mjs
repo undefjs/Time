@@ -48,6 +48,6 @@ export function waitUntil(ts) {
  */
 export function wait(ms) {
   return new Promise(resolve => {
-    executeAfter(ms, resolve);
+    setTimeout(resolve, ms);
   });
 }
